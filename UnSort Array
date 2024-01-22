@@ -1,0 +1,153 @@
+// find position of element in unsorted array..
+//Search Operation:
+//In an unsorted array, the search operation can be performed by linear traversal from the first element to the last element. 
+public class FindNum {
+	
+	public static int findPositionNum(int[] arr,int target) {
+		
+		for(int i = 0 ; i < arr.length ; i++) {
+			if(arr[i] == target) {
+				return i+1;
+			}
+		}
+		
+		return -1;
+	}
+
+	public static void main(String[] args) {
+
+		int arr[] = { 12, 34, 10, 6, 40 };
+		int target = 10;
+		int positionNum = findPositionNum(arr,target);
+		if(positionNum != -1) {
+		System.out.println("Postion of "+target+ " : "+positionNum);
+		}else {
+			System.out.println("Position of target not found");
+		}
+	}
+
+}
+
+
+
+=======================================================================================
+//delete element from unsorted array
+public class DeleteElement {
+
+	static int findElement(int arr[], int key) {
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] == key) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	static int deleteElement(int arr[], int n, int key) {
+
+		int pos = findElement(arr, key);
+
+		if (pos == -1) {
+			System.out.println("Element not found");
+			return n;
+		}
+
+		for (int i = pos; i < n - 1; i++) {
+			arr[i] = arr[i + 1];
+		}
+
+		return n - 1;
+	}
+
+	public static void main(String[] args) {
+
+		int arr[] = { 10, 50, 30, 40, 20 };
+
+		int n = arr.length;
+		int key = 30;
+
+		System.out.println("Array before deletion");
+		for (int i = 0; i < n; i++) {
+			System.out.print(arr[i] + " ");
+		}
+
+		int deleteElement = deleteElement(arr, n, key);
+		System.out.println("\n\nArray after deletion");
+		for (int i = 0; i < deleteElement; i++)
+			System.out.print(arr[i] + " ");
+
+	}
+
+}
+===========================================================================
+//insert element in unsorted array
+
+
+public class InsertNum {
+
+	public static int insertSorted(int[] arr, int n, int capacity, int key, int position) {
+
+		if (n >= capacity) {
+			return arr.length;
+		}
+
+		arr[n] = key;
+		return (n + 1);
+
+	}
+	
+	
+	public static void insertElement(int[] arr, int n , int x , int position) {
+		
+		for(int i = n-1;i>=position;i--) {
+			arr[i+1]=arr[i];
+		}
+		arr[position]=x;
+		
+		
+	}
+	
+	
+	public static void main(String[] args) {
+
+//		int[] arr = new int[20];
+//		arr[0] = 12;
+//		arr[1] = 16;
+//		arr[2] = 20;
+//		arr[3] = 40;
+//		arr[4] = 50;
+//		arr[5] = 70;
+//		int n = 6;
+//		int key = 26;
+//		int position = 6;
+//		int capacity = 20;
+//
+//		n = insertSorted(arr, n, capacity, key, position);
+//
+//		System.out.print("\n After Insertion: ");
+//		for (int i = 0; i < n; i++)
+//			System.out.print(arr[i] + " ");
+		
+		
+		
+		
+		
+		
+		 int arr1[] = new int[15];
+	        arr1[0] = 2;
+	        arr1[1] = 4;
+	        arr1[2] = 1;
+	        arr1[3] = 8;
+	        arr1[4] = 5;
+	        int n1 = 5;
+	        int x = 10, pos = 2;
+	        
+	        insertElement(arr1,n1,x,pos);	
+	        
+	        System.out.print("\n After Insertion: ");
+			for (int i = 0; i < n1+1; i++)
+				System.out.print(arr1[i] + " ");
+
+	}
+
+}
